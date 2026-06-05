@@ -1,0 +1,50 @@
+# Referência de deploy na VPS. Se o disparo JÁ tem postgres e redis,
+# remova esses serviços daqui e aponte o DATABASE_URL/REDIS_URL para eles.
+# Objetivo: web (dashboard/API) + worker (coletores + pipeline) compartilhando banco e fila.
+
+services:
+  api:
+    build: ./apps/api
+    env_file: .env
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+  worker:
+    build: ./apps/api
+    command: ["node", "dist/worker.js"]   # processo separado: coletores + pipeline BullMQ
+    env_file: .env
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+  web:
+    build: ./apps/web
+    env_file: .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  # ---- remova se já existem no stack do disparo ----
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: agencia
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: senha
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+
+volumes:
+  pgdata:
