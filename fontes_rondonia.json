@@ -1,0 +1,22 @@
+{
+  "_comentario": "Seed inicial de fontes para o Motor de Busca. tipo=jornal_rss tenta o feed; se nao houver, troque para jornal_html e preencha os seletores. O cliente deve somar a propria lista no campo livre do dashboard. Confirme cada rss_url antes de ativar.",
+  "fontes": [
+    { "nome": "Rondoniagora", "tipo": "jornal_rss", "config": { "url": "https://www.rondoniagora.com/", "rss_url": "https://www.rondoniagora.com/feed", "intervalo_min": 15, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "Diário da Amazônia", "tipo": "jornal_rss", "config": { "url": "https://diariodaamazonia.com.br/", "rss_url": "https://diariodaamazonia.com.br/feed", "intervalo_min": 15, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "Rondônia ao Vivo", "tipo": "jornal_rss", "config": { "url": "https://rondoniaovivo.com/", "rss_url": "https://rondoniaovivo.com/feed", "intervalo_min": 15, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "Rondônia Dinâmica", "tipo": "jornal_rss", "config": { "url": "https://www.rondoniadinamica.com/", "rss_url": "https://www.rondoniadinamica.com/feed", "intervalo_min": 15, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "Tudo Rondônia", "tipo": "jornal_rss", "config": { "url": "https://tudorondonia.com/", "rss_url": "https://tudorondonia.com/feed", "intervalo_min": 20, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "News Rondônia", "tipo": "jornal_rss", "config": { "url": "https://newsrondonia.com.br/", "rss_url": "https://newsrondonia.com.br/feed", "intervalo_min": 20, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "Portal Rondônia", "tipo": "jornal_rss", "config": { "url": "https://www.portalrondonia.com/", "rss_url": "https://www.portalrondonia.com/feed", "intervalo_min": 20, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "Rondo Notícias", "tipo": "jornal_rss", "config": { "url": "https://rondonoticias.com.br/", "rss_url": "https://rondonoticias.com.br/feed", "intervalo_min": 20, "editoria_padrao": "Geral" }, "ativo": true },
+    { "nome": "Ji-Paraná Notícias", "tipo": "jornal_rss", "config": { "url": "https://www.jiparananoticias.com.br/", "rss_url": "https://www.jiparananoticias.com.br/feed", "intervalo_min": 20, "editoria_padrao": "Cidades" }, "ativo": true },
+    { "nome": "Portal da Cidade - Porto Velho", "tipo": "jornal_html", "config": { "url": "https://portovelho.portaldacidade.com/noticias", "seletor_lista": "a.card-news", "seletor_titulo": "h1", "seletor_corpo": "article", "seletor_data": "time", "intervalo_min": 30, "editoria_padrao": "Cidades" }, "ativo": false },
+
+    { "nome": "G1 Rondônia", "tipo": "jornal_rss", "config": { "url": "https://g1.globo.com/ro/rondonia/", "rss_url": "https://g1.globo.com/rss/g1/ro/rondonia/", "intervalo_min": 20, "editoria_padrao": "Geral", "filtro_mencao": "Rondônia" }, "ativo": true },
+
+    { "nome": "Governo de Rondônia", "tipo": "oficial", "config": { "url": "https://rondonia.ro.gov.br/portal/noticias/", "tipo_leitura": "html", "intervalo_min": 30, "editoria_padrao": "Política" }, "ativo": true },
+    { "nome": "Prefeitura de Porto Velho", "tipo": "oficial", "config": { "url": "https://www.portovelho.ro.gov.br/", "tipo_leitura": "html", "intervalo_min": 30, "editoria_padrao": "Cidades" }, "ativo": true },
+    { "nome": "Prefeitura de Ji-Paraná", "tipo": "oficial", "config": { "url": "https://ji-parana.ro.gov.br/", "tipo_leitura": "html", "intervalo_min": 30, "editoria_padrao": "Cidades" }, "ativo": true },
+    { "nome": "Diário Oficial de Ji-Paraná", "tipo": "oficial", "config": { "url": "https://www.diariooficialjp.com.br/", "tipo_leitura": "html", "intervalo_min": 60, "editoria_padrao": "Cidades" }, "ativo": false }
+  ]
+}
